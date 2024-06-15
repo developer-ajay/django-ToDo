@@ -19,3 +19,8 @@ def mark_as_undone(request , pk):
     task.is_completed = False
     task.save()
     return redirect('home')
+
+def deleteTask(request ,pk):
+    task = Task.objects.get(id = pk)
+    task.delete()
+    return redirect('home')
